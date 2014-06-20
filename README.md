@@ -1,3 +1,3 @@
-epamtasks
+epamtask_1
 =========
-Tasks for epam's java summer course
+Tasks 1 for epam's java summer course

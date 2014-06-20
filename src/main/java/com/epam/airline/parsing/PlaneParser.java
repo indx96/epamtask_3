@@ -1,9 +1,8 @@
 package com.epam.airline.parsing;
 
-import com.epam.airline.air.Airliner;
-import com.epam.airline.air.Fighter;
-import com.epam.airline.air.Hangar;
-import com.epam.airline.air.Plane;
+import com.epam.airline.planes.Airliner;
+import com.epam.airline.planes.Fighter;
+import com.epam.airline.planes.Plane;
 
 import java.io.File;
 import java.util.HashMap;

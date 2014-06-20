@@ -1,17 +1,15 @@
 package com.epam.airline.start;
 
-import com.epam.airline.air.Airliner;
-import com.epam.airline.air.Fighter;
-import com.epam.airline.air.Hangar;
-import com.epam.airline.air.Plane;
+import com.epam.airline.hangar.Hangar;
+import com.epam.airline.hangar.hangarprocessors.HangarPlanesFilter;
+import com.epam.airline.hangar.hangarprocessors.HangarPlanesSorter;
 import com.epam.airline.parsing.PlaneParser;
+import com.epam.airline.planes.Plane;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import java.io.File;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Hello world!
@@ -26,14 +24,18 @@ public class Main {
     public static void main(String... args) {
         Hangar hangar = new Hangar();
         hangar.addPlanes(PlaneParser.getInstance().parse(new File("planes.xml")));
+
         log.debug("Planes with tankeSize in range " + 10 + "-" + 32);
-        hangar.getPlanesWithTankeRange(10, 32).forEachRemaining(log::debug);
-        log.debug("Sorted planes");
-        hangar.getSortedPlanes(new Comparator<Plane>() {
-            @Override
-            public int compare(Plane o1, Plane o2) {
-                return Float.compare(o1.getFlyRange(), o2.getFlyRange());
-            }
-        }).forEach(log::debug);
+        HangarPlanesFilter.getInstance()
+                .filterByTankeSizeRange(10, 32, hangar)
+                .forEach(log::debug);
+
+        log.debug("planes, sorted by fly range");
+        Comparator<Plane> flyRangeCompator =
+                (plane1, plane2) -> Float.compare(plane1.getFlyRange(), plane2.getFlyRange());
+
+        HangarPlanesSorter.getInstance()
+                .planesSortedBy(flyRangeCompator, hangar)
+                .forEach(log::debug);
     }
 }
