@@ -97,22 +97,16 @@ public class Plane {
             if (!cabinVolume.get().equals(otherPlane.cabinVolume.get())) {
                 return false;
             }
-        } else {
-            return false;
         }
         if (operationalCeiling.isPresent() && otherPlane.operationalCeiling.isPresent()) {
             if (!operationalCeiling.get().equals(otherPlane.operationalCeiling.get())) {
                 return false;
             }
-        } else {
-            return false;
         }
         if (runawayLength.isPresent() && otherPlane.runawayLength.isPresent()) {
             if (!runawayLength.get().equals(otherPlane.runawayLength.get())) {
                 return false;
             }
-        } else {
-            return false;
         }
         return true;
     }
