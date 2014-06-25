@@ -30,9 +30,9 @@ public class PlaneParser {
         }
         List<Plane> resList = new LinkedList<Plane>();
         Map<Fighter.WeaponType, Integer> m1 = new HashMap<Fighter.WeaponType, Integer>();
-        m1.put(Fighter.WeaponType.Bombs, 1);
+        m1.put(Fighter.WeaponType.BOMBS, 1);
         Map<Fighter.WeaponType, Integer> m2 = new HashMap<Fighter.WeaponType, Integer>();
-        m2.put(Fighter.WeaponType.Bombs, 1);
+        m2.put(Fighter.WeaponType.BOMBS, 1);
         Fighter f1 = (Fighter) new Fighter.Builder("f1", 1, 3, 1, 10500, 10, m1).
                 setCabinVolume(1).setOperationalCeiling(1).setRunawayLength(1).build();
         resList.add(f1);

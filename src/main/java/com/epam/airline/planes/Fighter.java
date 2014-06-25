@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class Fighter extends Plane {
 
-    public enum WeaponType{Bombs, Guns};
+    public enum WeaponType{BOMBS, GUNS};
     private Map<WeaponType, Integer> weaponsOnBoard;
 
     public Map<WeaponType, Integer> getWeaponsOnBoard() {
