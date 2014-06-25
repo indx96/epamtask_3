@@ -1,5 +1,6 @@
 package com.epam.airline.planes;
 
+import com.epam.airline.exceptions.PlaneIllegalParameters;
 import org.apache.log4j.Logger;
 
 import java.util.Optional;
@@ -167,22 +168,22 @@ public class Plane {
                        float flyRange,
                        float tankeSize) {
             if (name == null) {
-                throw new IllegalArgumentException();
+                throw new PlaneIllegalParameters("Name can't be null");
             }
             if (length <= 0) {
-                throw new IllegalArgumentException();
+                throw new PlaneIllegalParameters("Length can't be negative or zero");
             }
             if (height <= 0) {
-                throw new IllegalArgumentException();
+                throw new PlaneIllegalParameters("Height can't be negative or zero");
             }
             if (wingspan <= 0) {
-                throw new IllegalArgumentException();
+                throw new PlaneIllegalParameters("Wingspan can't be negative or zero");
             }
             if (flyRange <= 0) {
-                throw new IllegalArgumentException();
+                throw new PlaneIllegalParameters("Fly range can't be negative or zero");
             }
             if (tankeSize <= 0) {
-                throw new IllegalArgumentException();
+                throw new PlaneIllegalParameters("Length can't be negative or zero");
             }
 
             this.name = name;
@@ -195,7 +196,7 @@ public class Plane {
 
         public Builder setCabinVolume(float cabinVolume) {
             if (cabinVolume <= 0) {
-                throw new IllegalArgumentException();
+                throw new PlaneIllegalParameters("Cabin volume can't be negative or zero");
             }
             this.cabinVolume = Optional.of(cabinVolume);
             return this;
@@ -203,7 +204,7 @@ public class Plane {
 
         public Builder setOperationalCeiling(float operationalCeiling) {
             if (operationalCeiling <= 0) {
-                throw new IllegalArgumentException();
+                throw new PlaneIllegalParameters("Operation ceiling can't be negative or zero");
             }
             this.operationalCeiling = Optional.of(operationalCeiling);
             return this;
@@ -211,7 +212,7 @@ public class Plane {
 
         public Builder setRunawayLength(float runawayLength) {
             if (runawayLength <= 0) {
-                throw new IllegalArgumentException();
+                throw new PlaneIllegalParameters("Runaway length can't be negative or zero");
             }
             this.runawayLength = Optional.of(runawayLength);
             return this;

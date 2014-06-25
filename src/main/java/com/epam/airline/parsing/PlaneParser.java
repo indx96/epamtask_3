@@ -1,5 +1,6 @@
 package com.epam.airline.parsing;
 
+import com.epam.airline.exceptions.PlaneParsingException;
 import com.epam.airline.planes.Airliner;
 import com.epam.airline.planes.Fighter;
 import com.epam.airline.planes.Plane;
@@ -25,7 +26,7 @@ public class PlaneParser {
 
     public Iterable<Plane> parse(File file) {
         if (file == null) {
-            throw new IllegalArgumentException();
+            throw new PlaneParsingException("file can'not be null");
         }
         List<Plane> resList = new LinkedList<Plane>();
         Map<Fighter.WeaponType, Integer> m1 = new HashMap<Fighter.WeaponType, Integer>();
