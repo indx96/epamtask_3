@@ -3,13 +3,15 @@
 
     <xs:element name="planes">
         <xs:complexType>
-            <xs:all>
-                <xs:element name="plane" type="plane_type" minOccurs="0"/>
-                <xs:element name="fighter" type="fighter_type" minOccurs="0"/>
-                <xs:element name="airliner" type="airliner_type" minOccurs="0"/>
-            </xs:all>
+            <xs:sequence>
+                <xs:element ref="plane" maxOccurs="unbounded"/>
+            </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <xs:element name="plane" type="plane_type"/>
+    <xs:element name="fighter" type="fighter_type" substitutionGroup="plane"/>
+    <xs:element name="airliner" type="airliner_type" substitutionGroup="plane"/>
 
     <xs:complexType name="plane_type">
         <xs:sequence>
