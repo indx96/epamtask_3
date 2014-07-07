@@ -8,8 +8,8 @@
         <length>1</length>
         <height>3</height>
         <wingspan>1</wingspan>
-        <fly_range>1000</fly_range>
-        <tanke_size>100</tanke_size>
+        <fly-range>1000</fly-range>
+        <tanke-size>100</tanke-size>
     </plane>
 
     <fighter id="b">
@@ -17,12 +17,12 @@
         <length>4</length>
         <height>3</height>
         <wingspan>3</wingspan>
-        <fly_range>1500</fly_range>
-        <tanke_size>150</tanke_size>
-        <weapon_map>
+        <fly-range>1500</fly-range>
+        <tanke-size>150</tanke-size>
+        <weapon-map>
             <bombs>12</bombs>
             <guns>45</guns>
-        </weapon_map>
+        </weapon-map>
     </fighter>
 
     <airliner id="c">
@@ -30,9 +30,9 @@
         <length>8</length>
         <height>4</height>
         <wingspan>10</wingspan>
-        <fly_range>1200</fly_range>
-        <tanke_size>200</tanke_size>
-        <crew_amount>15</crew_amount>
-        <passengers_amount>100</passengers_amount>
+        <fly-range>1200</fly-range>
+        <tanke-size>200</tanke-size>
+        <crew-amount>15</crew-amount>
+        <passengers-amount>100</passengers-amount>
     </airliner>
 </planes>

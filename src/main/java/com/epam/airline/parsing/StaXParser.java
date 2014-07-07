@@ -74,7 +74,7 @@ public class StaXParser implements PlaneParser {
         do {
             XMLEvent event = reader.nextEvent();
             if (event.getEventType() == XMLStreamConstants.END_ELEMENT) {
-                if (((EndElement) event).getName().getLocalPart().equals("tanke_size")) {
+                if (((EndElement) event).getName().getLocalPart().equals("tanke-size")) {
                     break;
                 }
             }
@@ -99,11 +99,11 @@ public class StaXParser implements PlaneParser {
                         wingspan = Float.parseFloat(reader.nextEvent().asCharacters().getData());
                         break;
                     }
-                    case "fly_range": {
+                    case "fly-range": {
                         flyRange = Float.parseFloat(reader.nextEvent().asCharacters().getData());
                         break;
                     }
-                    case "tanke_size": {
+                    case "tanke-size": {
                         tankeSize = Float.parseFloat(reader.nextEvent().asCharacters().getData());
                         break;
                     }
@@ -121,7 +121,7 @@ public class StaXParser implements PlaneParser {
         do {
             XMLEvent event = reader.nextEvent();
             if (event.getEventType() == XMLStreamConstants.END_ELEMENT) {
-                if (((EndElement) event).getName().getLocalPart().equals("weapon_map")) {
+                if (((EndElement) event).getName().getLocalPart().equals("weapon-map")) {
                     break;
                 }
             }
@@ -153,18 +153,18 @@ public class StaXParser implements PlaneParser {
         do {
             XMLEvent event = reader.nextEvent();
             if (event.getEventType() == XMLStreamConstants.END_ELEMENT) {
-                if (((EndElement) event).getName().getLocalPart().equals("passengers_amount")) {
+                if (((EndElement) event).getName().getLocalPart().equals("passengers-amount")) {
                     break;
                 }
             }
 
             if (event.getEventType() == XMLStreamConstants.START_ELEMENT) {
                 switch ( ((StartElement) event).getName().getLocalPart() ) {
-                    case "crew_amount":{
+                    case "crew-amount":{
                         crewAmount = Integer.parseInt(reader.nextEvent().asCharacters().getData());
                         break;
                     }
-                    case "passengers_amount": {
+                    case "passengers-amount": {
                         passengersAmount = Integer.parseInt(reader.nextEvent().asCharacters().getData());
                         break;
                     }

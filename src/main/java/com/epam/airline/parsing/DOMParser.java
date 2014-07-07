@@ -71,14 +71,14 @@ public class DOMParser implements PlaneParser {
         float length = Float.parseFloat(element.getElementsByTagName("length").item(0).getTextContent());
         float height = Float.parseFloat(element.getElementsByTagName("height").item(0).getTextContent());
         float wingspan = Float.parseFloat(element.getElementsByTagName("wingspan").item(0).getTextContent());
-        float flyRange = Float.parseFloat(element.getElementsByTagName("fly_range").item(0).getTextContent());
-        float tankeSize = Float.parseFloat(element.getElementsByTagName("tanke_size").item(0).getTextContent());
+        float flyRange = Float.parseFloat(element.getElementsByTagName("fly-range").item(0).getTextContent());
+        float tankeSize = Float.parseFloat(element.getElementsByTagName("tanke-size").item(0).getTextContent());
         return new Plane.Builder(name, length, height, wingspan, flyRange, tankeSize).build();
     }
 
     private Fighter parseFighter(Element element) {
         Plane basePlane = parsePlane(element);
-        Element weaponMap = (Element) element.getElementsByTagName("weapon_map").item(0);
+        Element weaponMap = (Element) element.getElementsByTagName("weapon-map").item(0);
         HashMap<Fighter.WeaponType, Integer> map = new HashMap<>();
         int bombsCount = Integer.parseInt(weaponMap.getElementsByTagName("bombs").item(0).getTextContent());
         int gunsCount = Integer.parseInt(weaponMap.getElementsByTagName("guns").item(0).getTextContent());
@@ -89,8 +89,8 @@ public class DOMParser implements PlaneParser {
 
     private Airliner parseAirliner(Element element) {
         Plane basePlane = parsePlane(element);
-        int crewAmount = Integer.parseInt(element.getElementsByTagName("crew_amount").item(0).getTextContent());
-        int passengersAmount = Integer.parseInt(element.getElementsByTagName("passengers_amount").item(0).getTextContent());
+        int crewAmount = Integer.parseInt(element.getElementsByTagName("crew-amount").item(0).getTextContent());
+        int passengersAmount = Integer.parseInt(element.getElementsByTagName("passengers-amount").item(0).getTextContent());
         return new Airliner.Builder(basePlane, crewAmount, passengersAmount).build();
     }
 }

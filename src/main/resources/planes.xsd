@@ -9,27 +9,27 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="plane" type="plane_type"/>
-    <xs:element name="fighter" type="fighter_type" substitutionGroup="plane"/>
-    <xs:element name="airliner" type="airliner_type" substitutionGroup="plane"/>
+    <xs:element name="plane" type="plane-type"/>
+    <xs:element name="fighter" type="fighter-type" substitutionGroup="plane"/>
+    <xs:element name="airliner" type="airliner-type" substitutionGroup="plane"/>
 
-    <xs:complexType name="plane_type">
+    <xs:complexType name="plane-type">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
             <xs:element name="length" type="xs:float"/>
             <xs:element name="height" type="xs:float"/>
             <xs:element name="wingspan" type="xs:float"/>
-            <xs:element name="fly_range" type="xs:float"/>
-            <xs:element name="tanke_size" type="xs:float"/>
+            <xs:element name="fly-range" type="xs:float"/>
+            <xs:element name="tanke-size" type="xs:float"/>
         </xs:sequence>
         <xs:attribute name="id" type="xs:ID" use="required"/>
     </xs:complexType>
 
-    <xs:complexType name="fighter_type">
+    <xs:complexType name="fighter-type">
         <xs:complexContent>
-            <xs:extension base="plane_type">
+            <xs:extension base="plane-type">
                 <xs:sequence>
-                    <xs:element name="weapon_map">
+                    <xs:element name="weapon-map">
                         <xs:complexType>
                             <xs:sequence>
                                 <xs:element name="bombs" type="xs:integer"/>
@@ -42,12 +42,12 @@
         </xs:complexContent>
     </xs:complexType>
 
-    <xs:complexType name="airliner_type">
+    <xs:complexType name="airliner-type">
         <xs:complexContent>
-            <xs:extension base="plane_type">
+            <xs:extension base="plane-type">
                 <xs:sequence>
-                    <xs:element name="crew_amount" type="xs:integer"/>
-                    <xs:element name="passengers_amount" type="xs:integer"/>
+                    <xs:element name="crew-amount" type="xs:integer"/>
+                    <xs:element name="passengers-amount" type="xs:integer"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
