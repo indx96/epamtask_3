@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="planes">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="plane" type="plane_type" minOccurs="0"/>
+                <xs:element name="fighter" type="fighter_type" minOccurs="0"/>
+                <xs:element name="airliner" type="airliner_type" minOccurs="0"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="plane_type">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="length" type="xs:float"/>
+            <xs:element name="height" type="xs:float"/>
+            <xs:element name="wingspan" type="xs:float"/>
+            <xs:element name="fly_range" type="xs:float"/>
+            <xs:element name="tanke_size" type="xs:float"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="fighter_type">
+        <xs:complexContent>
+            <xs:extension base="plane_type">
+                <xs:sequence>
+                    <xs:element name="weapon_map">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="bombs" type="xs:integer"/>
+                                <xs:element name="guns" type="xs:integer"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="airliner_type">
+        <xs:complexContent>
+            <xs:extension base="plane_type">
+                <xs:sequence>
+                    <xs:element name="crew_amount" type="xs:integer"/>
+                    <xs:element name="passengers_amount" type="xs:integer"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+</xs:schema>

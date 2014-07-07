@@ -88,6 +88,26 @@ public class Airliner extends Plane {
             this.passengersAmount = passengerAmount;
         }
 
+        public Builder(Plane plane,
+                       int crewAmount,
+                       int passengerAmount) {
+            super(plane.getName(),
+                    plane.getLength(),
+                    plane.getHeight(),
+                    plane.getWingspan(),
+                    plane.getFlyRange(),
+                    plane.getTankeSize());
+            if (crewAmount <= 0) {
+                throw new PlaneIllegalParameters("Crew amount can't be negative or zero");
+            }
+            if (passengerAmount <= 0) {
+                throw new PlaneIllegalParameters("Passenger amount can't be negative or zero");
+            }
+
+            this.crewAmount = crewAmount;
+            this.passengersAmount = passengerAmount;
+        }
+
         @Override
         public Airliner build() {
             Airliner airliner = new Airliner(this);

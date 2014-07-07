@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<planes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="planes.xsd">
+
+    <plane id="a">
+        <name>p1</name>
+        <length>1</length>
+        <height>3</height>
+        <wingspan>1</wingspan>
+        <fly_range>1000</fly_range>
+        <tanke_size>100</tanke_size>
+    </plane>
+
+    <fighter id="b">
+        <name>f1</name>
+        <length>4</length>
+        <height>3</height>
+        <wingspan>3</wingspan>
+        <fly_range>1500</fly_range>
+        <tanke_size>150</tanke_size>
+        <weapon_map>
+            <bombs>12</bombs>
+            <guns>45</guns>
+        </weapon_map>
+    </fighter>
+
+    <airliner id="c">
+        <name>a1</name>
+        <length>8</length>
+        <height>4</height>
+        <wingspan>10</wingspan>
+        <fly_range>1200</fly_range>
+        <tanke_size>200</tanke_size>
+        <crew_amount>15</crew_amount>
+        <passengers_amount>100</passengers_amount>
+    </airliner>
+</planes>

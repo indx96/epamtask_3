@@ -11,16 +11,16 @@ import java.util.Map;
  */
 public class Fighter extends Plane {
 
-    public enum WeaponType{BOMBS, GUNS};
     private Map<WeaponType, Integer> weaponsOnBoard;
-
-    public Map<WeaponType, Integer> getWeaponsOnBoard() {
-        return Collections.unmodifiableMap(weaponsOnBoard);
-    }
+    ;
 
     private Fighter(Builder builder) {
         super(builder);
         this.weaponsOnBoard = builder.weaponsOnBoard;
+    }
+
+    public Map<WeaponType, Integer> getWeaponsOnBoard() {
+        return Collections.unmodifiableMap(weaponsOnBoard);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Fighter extends Plane {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        if (! super.equals(o) ) {
+        if (!super.equals(o)) {
             return false;
         }
 
@@ -52,10 +52,12 @@ public class Fighter extends Plane {
 
     @Override
     public String toString() {
-        return  "Fighter{" +
+        return "Fighter{" +
                 "gunsOnBoard=" + weaponsOnBoard +
                 " " + super.toString() + "}";
     }
+
+    public enum WeaponType {BOMBS, GUNS}
 
     public static class Builder extends Plane.Builder {
         private Map<WeaponType, Integer> weaponsOnBoard = new HashMap<>();
@@ -66,8 +68,22 @@ public class Fighter extends Plane {
                        float wingspan,
                        float flyRange,
                        float tankeSize,
-                       Map<WeaponType, Integer> weaponsOnBoard) throws PlaneParsingException{
+                       Map<WeaponType, Integer> weaponsOnBoard) throws PlaneParsingException {
             super(name, length, height, wingspan, flyRange, tankeSize);
+            if (weaponsOnBoard == null) {
+                throw new PlaneParsingException("weapons can't be null");
+            }
+            this.weaponsOnBoard = weaponsOnBoard;
+        }
+
+        public Builder(Plane plane,
+                       Map<WeaponType, Integer> weaponsOnBoard) throws PlaneParsingException {
+            super(plane.getName(),
+                    plane.getLength(),
+                    plane.getHeight(),
+                    plane.getWingspan(),
+                    plane.getFlyRange(),
+                    plane.getTankeSize());
             if (weaponsOnBoard == null) {
                 throw new PlaneParsingException("weapons can't be null");
             }
