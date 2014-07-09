@@ -3,9 +3,6 @@ package com.epam.airline.planes;
 import com.epam.airline.exceptions.PlaneIllegalParameters;
 import com.epam.airline.exceptions.PlaneParsingException;
 
-/**
- * Created by ivan on 6/16/14.
- */
 public class Airliner extends Plane {
 
     private int crewAmount;

@@ -11,9 +11,6 @@ import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by ivan on 7/7/14.
- */
 public class PlaneValidator {
     private static  PlaneValidator instance;
 

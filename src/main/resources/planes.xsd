@@ -1,5 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="plane" type="plane-type"/>
+    <xs:element name="fighter" type="fighter-type" substitutionGroup="plane"/>
+    <xs:element name="airliner" type="airliner-type" substitutionGroup="plane"/>
 
     <xs:element name="planes">
         <xs:complexType>
@@ -9,20 +13,38 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="plane" type="plane-type"/>
-    <xs:element name="fighter" type="fighter-type" substitutionGroup="plane"/>
-    <xs:element name="airliner" type="airliner-type" substitutionGroup="plane"/>
+    <xs:simpleType name="amount">
+        <xs:restriction base="xs:double">
+            <xs:minInclusive value="1.0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="plane-ID">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="[A-z]\d+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="engine-type">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="reactive"/>
+            <xs:enumeration value="propeller"/>
+            <xs:enumeration value="solid"/>
+            <xs:enumeration value="liquid"/>
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:complexType name="plane-type">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
-            <xs:element name="length" type="xs:float"/>
-            <xs:element name="height" type="xs:float"/>
-            <xs:element name="wingspan" type="xs:float"/>
-            <xs:element name="fly-range" type="xs:float"/>
-            <xs:element name="tanke-size" type="xs:float"/>
+            <xs:element name="length" type="amount"/>
+            <xs:element name="height" type="amount"/>
+            <xs:element name="wingspan" type="amount"/>
+            <xs:element name="fly-range" type="amount"/>
+            <xs:element name="tanke-size" type="amount"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="id" type="plane-ID" use="required"/>
+        <xs:attribute name="engine" type="engine-type" use="optional"/>
     </xs:complexType>
 
     <xs:complexType name="fighter-type">
@@ -32,8 +54,8 @@
                     <xs:element name="weapon-map">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element name="bombs" type="xs:integer"/>
-                                <xs:element name="guns" type="xs:integer"/>
+                                <xs:element name="bombs" type="xs:positiveInteger"/>
+                                <xs:element name="guns" type="xs:positiveInteger"/>
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
@@ -46,8 +68,8 @@
         <xs:complexContent>
             <xs:extension base="plane-type">
                 <xs:sequence>
-                    <xs:element name="crew-amount" type="xs:integer"/>
-                    <xs:element name="passengers-amount" type="xs:integer"/>
+                    <xs:element name="crew-amount" type="xs:positiveInteger"/>
+                    <xs:element name="passengers-amount" type="xs:positiveInteger"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

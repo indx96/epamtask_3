@@ -10,9 +10,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
 
-/**
- * Hello world!
- */
 public class Main {
     static {
         PropertyConfigurator.configure("log4j.properties");

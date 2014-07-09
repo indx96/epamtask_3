@@ -19,9 +19,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-/**
- * Created by ivan on 7/7/14.
- */
 public class StaXParser implements PlaneParser {
 
     StaXParser(){}
@@ -74,7 +71,7 @@ public class StaXParser implements PlaneParser {
         do {
             XMLEvent event = reader.nextEvent();
             if (event.getEventType() == XMLStreamConstants.END_ELEMENT) {
-                if (((EndElement) event).getName().getLocalPart().equals("tanke-size")) {
+                if ( "tanke-size".equals(((EndElement) event).getName().getLocalPart()) ) {
                     break;
                 }
             }
@@ -121,7 +118,7 @@ public class StaXParser implements PlaneParser {
         do {
             XMLEvent event = reader.nextEvent();
             if (event.getEventType() == XMLStreamConstants.END_ELEMENT) {
-                if (((EndElement) event).getName().getLocalPart().equals("weapon-map")) {
+                if ( "weapon-map".equals(((EndElement) event).getName().getLocalPart()) ) {
                     break;
                 }
             }
@@ -153,7 +150,7 @@ public class StaXParser implements PlaneParser {
         do {
             XMLEvent event = reader.nextEvent();
             if (event.getEventType() == XMLStreamConstants.END_ELEMENT) {
-                if (((EndElement) event).getName().getLocalPart().equals("passengers-amount")) {
+                if ( "passengers-amount".equals(((EndElement) event).getName().getLocalPart()) ) {
                     break;
                 }
             }

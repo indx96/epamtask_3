@@ -5,9 +5,6 @@ import org.apache.log4j.Logger;
 
 import java.util.Optional;
 
-/**
- * Created by ivan on 6/16/14.
- */
 public class Plane {
     protected static Logger log = Logger.getLogger(Plane.class);
     private String name;

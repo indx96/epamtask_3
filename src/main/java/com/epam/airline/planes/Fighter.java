@@ -6,13 +6,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by ivan on 6/16/14.
- */
 public class Fighter extends Plane {
 
     private Map<WeaponType, Integer> weaponsOnBoard;
-    ;
+
 
     private Fighter(Builder builder) {
         super(builder);

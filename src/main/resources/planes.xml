@@ -1,9 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <planes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="planes.xsd">
 
-    <plane id="a">
+    <plane id="d1" engine="reactive">
         <name>p1</name>
         <length>1</length>
         <height>3</height>
@@ -12,7 +12,7 @@
         <tanke-size>100</tanke-size>
     </plane>
 
-    <fighter id="b">
+    <fighter id="b3" engine="liquid">
         <name>f1</name>
         <length>4</length>
         <height>3</height>
@@ -25,7 +25,7 @@
         </weapon-map>
     </fighter>
 
-    <airliner id="c">
+    <airliner id="c5">
         <name>a1</name>
         <length>8</length>
         <height>4</height>
