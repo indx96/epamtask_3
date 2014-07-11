@@ -24,12 +24,16 @@ public class PlaneValidator {
     public void validate(String pathToXML, String pathToXSD)
             throws SAXException, IOException {
         Source xmlFile = new StreamSource(new File(pathToXML));
+        Schema schema = createSchema(pathToXSD);
+        Validator validator = schema.newValidator();
+        validator.validate(xmlFile);
+    }
+
+    public Schema createSchema(String pathToXSD) throws SAXException {
         File schemaFile = new File(pathToXSD);
         SchemaFactory schemaFactory = SchemaFactory
                 .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-        Schema schema = schemaFactory.newSchema(schemaFile);
-        Validator validator = schema.newValidator();
-        validator.validate(xmlFile);
+        return schemaFactory.newSchema(schemaFile);
     }
 
 }

@@ -13,16 +13,16 @@
     </plane>
 
     <fighter id="b3" engine="liquid">
-        <name>f1</name>
+        <name>f1hfhhdffdh</name>
         <length>4</length>
         <height>3</height>
         <wingspan>3</wingspan>
         <fly-range>1500</fly-range>
         <tanke-size>150</tanke-size>
-        <weapon-map>
+        <weapons>
             <bombs>12</bombs>
             <guns>45</guns>
-        </weapon-map>
+        </weapons>
     </fighter>
 
     <airliner id="c5">

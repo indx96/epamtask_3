@@ -1,5 +1,6 @@
 package com.epam.airline.parsing;
 
+import com.epam.airline.parsing.PlaneParser;
 import com.epam.airline.parsing.validation.PlaneValidator;
 import com.epam.airline.planes.Airliner;
 import com.epam.airline.planes.Fighter;
@@ -19,7 +20,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-public class StaXParser implements PlaneParser {
+class StaXParser implements PlaneParser {
 
     StaXParser(){}
 
@@ -118,7 +119,7 @@ public class StaXParser implements PlaneParser {
         do {
             XMLEvent event = reader.nextEvent();
             if (event.getEventType() == XMLStreamConstants.END_ELEMENT) {
-                if ( "weapon-map".equals(((EndElement) event).getName().getLocalPart()) ) {
+                if ( "weapons".equals(((EndElement) event).getName().getLocalPart()) ) {
                     break;
                 }
             }

@@ -22,7 +22,7 @@ import java.util.LinkedList;
 /**
  * Created by ivan on 7/7/14.
  */
-public class DOMParser implements PlaneParser {
+class DOMParser implements PlaneParser {
 
     DOMParser(){}
 
@@ -78,7 +78,7 @@ public class DOMParser implements PlaneParser {
 
     private Fighter parseFighter(Element element) {
         Plane basePlane = parsePlane(element);
-        Element weaponMap = (Element) element.getElementsByTagName("weapon-map").item(0);
+        Element weaponMap = (Element) element.getElementsByTagName("weapons").item(0);
         HashMap<Fighter.WeaponType, Integer> map = new HashMap<>();
         int bombsCount = Integer.parseInt(weaponMap.getElementsByTagName("bombs").item(0).getTextContent());
         int gunsCount = Integer.parseInt(weaponMap.getElementsByTagName("guns").item(0).getTextContent());

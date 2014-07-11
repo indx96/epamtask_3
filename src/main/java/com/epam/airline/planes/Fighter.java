@@ -1,6 +1,6 @@
 package com.epam.airline.planes;
 
-import com.epam.airline.exceptions.PlaneParsingException;
+import com.epam.airline.exceptions.PlaneInvalidException;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -65,16 +65,16 @@ public class Fighter extends Plane {
                        float wingspan,
                        float flyRange,
                        float tankeSize,
-                       Map<WeaponType, Integer> weaponsOnBoard) throws PlaneParsingException {
+                       Map<WeaponType, Integer> weaponsOnBoard){
             super(name, length, height, wingspan, flyRange, tankeSize);
             if (weaponsOnBoard == null) {
-                throw new PlaneParsingException("weapons can't be null");
+                throw new PlaneInvalidException("weapons can't be null");
             }
             this.weaponsOnBoard = weaponsOnBoard;
         }
 
         public Builder(Plane plane,
-                       Map<WeaponType, Integer> weaponsOnBoard) throws PlaneParsingException {
+                       Map<WeaponType, Integer> weaponsOnBoard){
             super(plane.getName(),
                     plane.getLength(),
                     plane.getHeight(),
@@ -82,7 +82,7 @@ public class Fighter extends Plane {
                     plane.getFlyRange(),
                     plane.getTankeSize());
             if (weaponsOnBoard == null) {
-                throw new PlaneParsingException("weapons can't be null");
+                throw new PlaneInvalidException("weapons can't be null");
             }
             this.weaponsOnBoard = weaponsOnBoard;
         }

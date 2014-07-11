@@ -1,5 +1,6 @@
 package com.epam.airline.parsing;
 
+import com.epam.airline.parsing.stax.PlaneSAXParser;
 import org.apache.log4j.Logger;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -18,6 +19,9 @@ public class ParserFactory {
             case STAX:
                 return new StaXParser();
 
+            case SAX:
+                return new PlaneSAXParser();
+
             default:
                 log.error("wrong enum type: " + type);
                 throw new NotImplementedException();
@@ -26,6 +30,6 @@ public class ParserFactory {
 
     ;
 
-    public enum Type {DOM, STAX}
+    public enum Type {DOM, STAX, SAX}
 
 }

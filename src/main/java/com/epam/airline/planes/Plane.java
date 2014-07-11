@@ -1,9 +1,7 @@
 package com.epam.airline.planes;
 
-import com.epam.airline.exceptions.PlaneIllegalParameters;
+import com.epam.airline.exceptions.PlaneInvalidException;
 import org.apache.log4j.Logger;
-
-import java.util.Optional;
 
 public class Plane {
     protected static Logger log = Logger.getLogger(Plane.class);
@@ -114,22 +112,22 @@ public class Plane {
                        float flyRange,
                        float tankeSize) {
             if (name == null) {
-                throw new PlaneIllegalParameters("Name can't be null");
+                throw new PlaneInvalidException("Name can't be null");
             }
             if (length <= 0) {
-                throw new PlaneIllegalParameters("Length can't be negative or zero");
+                throw new PlaneInvalidException("Length can't be negative or zero");
             }
             if (height <= 0) {
-                throw new PlaneIllegalParameters("Height can't be negative or zero");
+                throw new PlaneInvalidException("Height can't be negative or zero");
             }
             if (wingspan <= 0) {
-                throw new PlaneIllegalParameters("Wingspan can't be negative or zero");
+                throw new PlaneInvalidException("Wingspan can't be negative or zero");
             }
             if (flyRange <= 0) {
-                throw new PlaneIllegalParameters("Fly range can't be negative or zero");
+                throw new PlaneInvalidException("Fly range can't be negative or zero");
             }
             if (tankeSize <= 0) {
-                throw new PlaneIllegalParameters("Length can't be negative or zero");
+                throw new PlaneInvalidException("Length can't be negative or zero");
             }
 
             this.name = name;

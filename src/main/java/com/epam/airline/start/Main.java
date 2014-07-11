@@ -20,8 +20,8 @@ public class Main {
     public static void main(String... args) {
         PlaneParser parser = ParserFactory.getParser(ParserFactory.Type.DOM);
         try {
-            parser.parse("src/main/resources/planes.xml", "src/main/resources/planes.xsd")
-                    .forEach(log::debug);
+            log.debug(parser.parse("src/main/resources/xml/planes.xml",
+                    "src/main/resources/xml/planes.xsd").toString());
         } catch (IOException e) {
             log.error(e.toString());
         } catch (SAXException e) {

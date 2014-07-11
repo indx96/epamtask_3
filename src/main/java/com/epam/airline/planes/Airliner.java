@@ -1,7 +1,6 @@
 package com.epam.airline.planes;
 
-import com.epam.airline.exceptions.PlaneIllegalParameters;
-import com.epam.airline.exceptions.PlaneParsingException;
+import com.epam.airline.exceptions.PlaneInvalidException;
 
 public class Airliner extends Plane {
 
@@ -75,10 +74,10 @@ public class Airliner extends Plane {
                        int passengerAmount) {
             super(name, length, height, wingspan, flyRange, tankeSize);
             if (crewAmount <= 0) {
-                throw new PlaneIllegalParameters("Crew amount can't be negative or zero");
+                throw new PlaneInvalidException("Crew amount can't be negative or zero");
             }
             if (passengerAmount <= 0) {
-                throw new PlaneIllegalParameters("Passenger amount can't be negative or zero");
+                throw new PlaneInvalidException("Passenger amount can't be negative or zero");
             }
 
             this.crewAmount = crewAmount;
@@ -95,10 +94,10 @@ public class Airliner extends Plane {
                     plane.getFlyRange(),
                     plane.getTankeSize());
             if (crewAmount <= 0) {
-                throw new PlaneIllegalParameters("Crew amount can't be negative or zero");
+                throw new PlaneInvalidException("Crew amount can't be negative or zero");
             }
             if (passengerAmount <= 0) {
-                throw new PlaneIllegalParameters("Passenger amount can't be negative or zero");
+                throw new PlaneInvalidException("Passenger amount can't be negative or zero");
             }
 
             this.crewAmount = crewAmount;

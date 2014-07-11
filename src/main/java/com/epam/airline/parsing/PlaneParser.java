@@ -12,5 +12,6 @@ import java.io.IOException;
  */
 public interface PlaneParser {
 
-    public Iterable<Plane> parse(String pathToXML, String pathToXSD) throws IOException, SAXException, ParserConfigurationException, XMLStreamException;
+    public Iterable<Plane> parse(String pathToXML, String pathToXSD)
+            throws IOException, SAXException, ParserConfigurationException, XMLStreamException;
 }
